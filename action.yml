@@ -1,9 +1,9 @@
 name: Potential Duplicates
-description: Search for potential issue duplicates using Damerau–Levenshtein algorithm..
-author: bubkoo <bubkoo.wy@gmail.com>
+description: Search for potential issue duplicates.
+author: bubkoo <bubkoo.wy@gmail.com> & happygirlzt
 inputs:
-  GITHUB_TOKEN:
-    description: Your GitHub token for authentication.
+  repo-token:
+    description: 'Token for the repository. Can be passed in using {{ secrets.GITHUB_TOKEN }}'
     required: true
   filter:
     description: Filter issues by title.
@@ -29,9 +29,6 @@ inputs:
       Potential duplicates: {{#issues}}
         - [#{{ number }}] {{ title }} ({{ accuracy }}%)
       {{/issues}}
-    required: false
-  reactions:
-    description: Reactions to be add to comment when potential duplicates are detected.
     required: false
 runs:
   using: node16

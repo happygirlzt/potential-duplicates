@@ -45,9 +45,6 @@ jobs:
           state: all
           # If similarity is higher than this threshold([0,1]), issue will be marked as duplicate.
           threshold: 0.6
-          # Reactions to be add to comment when potential duplicates are detected.
-          # Available reactions: "-1", "+1", "confused", "laugh", "heart", "hooray", "rocket", "eyes"
-          reactions: 'eyes, confused'
           # Comment to post when potential duplicates are detected.
           comment: >
             Potential duplicates: {{#issues}}
@@ -69,21 +66,8 @@ Various inputs are defined to let you configure the action:
 | `label` | Label to set, when potential duplicates are detected | `'potential-duplicate'` |
 | `state` | Get issues with state to compare. Supported state: `'all'` `'closed'` `'open'` | `'all'` |
 | `threshold` | If similarity is higher than this threshold(`[0,1]`), issue will be marked as duplicate | `0.6` |
-| `reactions` | Reactions to be add to comment when potential duplicates are detected <br> Available reactions: "-1", "+1", "confused", "laugh", "heart", "hooray", "rocket", "eyes" |  |
 | `comment` | Comment to post when potential duplicates are detected | 👇 |
 
-Available reactions:
-
-| content    | emoji |
-| ---------- | ----- |
-| `+1`       | 👍    |
-| `-1`       | 👎    |
-| `laugh`    | 😄    |
-| `confused` | 😕    |
-| `heart`    | ❤️    |
-| `hooray`   | 🎉    |
-| `rocket`   | 🚀    |
-| `eyes`     | 👀    |
 
 Default comment:
 

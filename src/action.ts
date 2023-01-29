@@ -3,7 +3,7 @@ import * as github from '@actions/github'
 import mustache from 'mustache'
 import { Algo } from './algo'
 import { Util } from './util'
-import { Reaction } from './reaction'
+
 
 export namespace Action {
   export async function run() {
@@ -66,21 +66,16 @@ export namespace Action {
         }
 
         const comment = core.getInput('comment')
-        const reactions = core.getInput('reactions')
         if (comment) {
           const body = mustache.render(comment, {
             issues: duplicates,
           })
 
-          const { data } = await octokit.rest.issues.createComment({
+          octokit.rest.issues.createComment({
             ...context.repo,
             body,
             issue_number: payload.number,
           })
-          
-          if (reactions) {
-            await Reaction.add(octokit, data.id, reactions)
-          }
         }
       }
     }

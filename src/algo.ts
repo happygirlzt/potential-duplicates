@@ -1,5 +1,4 @@
 import { Dic } from './dic'
-import { BM25 } from "okapibm25";
 
 export namespace Algo {
   /**
@@ -30,7 +29,7 @@ export namespace Algo {
 
     return ret
   }
-  
+
   function distance(a: string, b: string) {
     const [al, bl] = [a.length, b.length]
     const matrix: number[][] = []
