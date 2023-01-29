@@ -1,4 +1,5 @@
 import { Dic } from './dic'
+import { BM25 } from "okapibm25";
 
 export namespace Algo {
   /**
@@ -29,17 +30,7 @@ export namespace Algo {
 
     return ret
   }
-
-  /**
-   * The Damerau–Levenshtein distance between two words is the minimum number
-   * of operations (consisting of insertions, deletions or substitutions of a
-   * single character, or transposition of two adjacent characters) required
-   * to change one word into the other.
-   *
-   * @see     https://en.wikipedia.org/wiki/Levenshtein_distance
-   * @see     https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance
-   * @see     https://rosettacode.org/wiki/Levenshtein_distance#JavaScript
-   */
+  
   function distance(a: string, b: string) {
     const [al, bl] = [a.length, b.length]
     const matrix: number[][] = []

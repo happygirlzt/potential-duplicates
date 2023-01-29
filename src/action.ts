@@ -77,7 +77,7 @@ export namespace Action {
             body,
             issue_number: payload.number,
           })
-
+          
           if (reactions) {
             await Reaction.add(octokit, data.id, reactions)
           }
